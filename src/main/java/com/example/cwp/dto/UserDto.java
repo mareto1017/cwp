@@ -15,7 +15,6 @@ public class UserDto {
 
     private String email;
 
-    //모임 목록
 
     private String currentAddress;
 

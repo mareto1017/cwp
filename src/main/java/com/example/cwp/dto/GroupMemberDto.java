@@ -10,8 +10,5 @@ import lombok.NoArgsConstructor;
 public class GroupMemberDto {
     private Long id;
 
-    private Long groupid;
-
-
-    private String email;
+    private UserDto userDto;
 }

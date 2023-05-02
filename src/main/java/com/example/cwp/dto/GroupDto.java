@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +17,7 @@ public class GroupDto {
 
     private String title;
 
-    private String name;
+    private UserDto userDto;
 
     private String location;
 
@@ -24,11 +25,12 @@ public class GroupDto {
 
     private String content;
 
+    private List<GroupMemberDto> groupMemberDto;
+
     private LocalDateTime time;
 
     public GroupDto(Group group) {
         this.title = group.getTitle();
-        this.name = group.getName();
         this.location = group.getLocation();
         this.category = group.getCategory();
         this.content = group.getContent();

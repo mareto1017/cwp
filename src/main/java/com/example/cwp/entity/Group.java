@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -22,8 +23,9 @@ public class Group {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
-    private String name;
+    @ManyToOne
+    @JoinColumn(name = "writer")
+    private User user;
 
     @Column(nullable = false)
     private String location;
@@ -35,12 +37,15 @@ public class Group {
     @Column(nullable = false)
     private String content;
 
+    @OneToMany
+    @JoinColumn(name = "member")
+    private List<GroupMember> groupMember;
+
     @Column(nullable = false)
     private LocalDateTime time;
 
     public Group(GroupDto groupDto) {
         this.title = groupDto.getTitle();
-        this.name = groupDto.getName();
         this.location = groupDto.getLocation();
         this.category = groupDto.getCategory();
         this.content = groupDto.getContent();

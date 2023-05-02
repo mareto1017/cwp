@@ -9,9 +9,8 @@ public class GroupMember {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "id")
-    private Long groupid;
+    @OneToOne
+    @JoinColumn(name = "member")
+    private User user;
 
-
-    private String email;
 }
