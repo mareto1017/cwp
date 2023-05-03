@@ -31,6 +31,8 @@ public class GroupDto {
 
     private LocalDateTime time;
 
+    private LocalDateTime startTime;
+
     public GroupDto(Group group) {
         this.id = group.getId();
         this.title = group.getTitle();
@@ -40,5 +42,6 @@ public class GroupDto {
         this.content = group.getContent();
         this.groupMemberDto = getGroupMemberDto();
         this.time = LocalDateTime.now();
+        this.startTime = group.getStartTime();
     }
 }

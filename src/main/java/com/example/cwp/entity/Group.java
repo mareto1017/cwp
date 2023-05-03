@@ -47,6 +47,8 @@ public class Group {
     @CreationTimestamp
     private LocalDateTime time;
 
+    private LocalDateTime startTime;
+
     public Group(GroupDto groupDto) {
         this.title = groupDto.getTitle();
         this.location = groupDto.getLocation();
@@ -54,5 +56,6 @@ public class Group {
         this.content = groupDto.getContent();
         this.groupMember = getGroupMember();
         this.time = LocalDateTime.now();
+        this.startTime = groupDto.getStartTime();
     }
 }
