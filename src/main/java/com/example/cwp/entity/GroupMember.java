@@ -17,8 +17,12 @@ public class GroupMember {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "member")
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "groupid")
+    private Group group;
 
 }

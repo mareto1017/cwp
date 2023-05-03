@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "user_group")
 public class Group {
 
     @Id
@@ -39,11 +41,10 @@ public class Group {
     @Column(nullable = false)
     private String content;
 
-    @OneToMany
-    @JoinColumn(name = "member")
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
     private List<GroupMember> groupMember;
 
-    @Column(nullable = false)
+    @CreationTimestamp
     private LocalDateTime time;
 
     public Group(GroupDto groupDto) {
@@ -51,6 +52,7 @@ public class Group {
         this.location = groupDto.getLocation();
         this.category = groupDto.getCategory();
         this.content = groupDto.getContent();
+        this.groupMember = getGroupMember();
         this.time = LocalDateTime.now();
     }
 }

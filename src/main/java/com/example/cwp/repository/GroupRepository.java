@@ -14,8 +14,5 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
 
     List<Group> findByCategory(Category category);
 
-    //날짜로 검색
-
-    //지역으로 검색
 
 }

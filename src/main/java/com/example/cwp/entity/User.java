@@ -29,5 +29,5 @@ public class User {
 
     private String homeAddress;
 
-    private String compayAddress;
+    private String companyAddress;
 }

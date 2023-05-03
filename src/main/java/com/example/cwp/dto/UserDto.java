@@ -22,5 +22,5 @@ public class UserDto {
 
     private String homeAddress;
 
-    private String compayAddress;
+    private String companyAddress;
 }
