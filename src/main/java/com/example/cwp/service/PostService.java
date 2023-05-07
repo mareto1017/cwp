@@ -2,6 +2,7 @@ package com.example.cwp.service;
 
 import com.example.cwp.dto.Category;
 import com.example.cwp.dto.GroupDto;
+import com.example.cwp.dto.Transport;
 import com.example.cwp.entity.Group;
 import com.example.cwp.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,19 @@ public class PostService {
         Group group = new Group(groupDto);
         groupRepository.save(group);
 
+    }
+
+    @Transactional
+    public void update(GroupDto groupDto) {
+        Group group = new Group(groupDto);
+        groupRepository.save(group);
+
+    }
+
+    @Transactional
+    public void delete(GroupDto groupDto) {
+        Group group = new Group(groupDto);
+        groupRepository.delete(group);
 
     }
 
@@ -45,4 +59,12 @@ public class PostService {
         List<Group> groupList = groupRepository.findByCategory(category);
         return groupList;
     }
+
+    @Transactional
+    public List<Group> findByCategoryAndTransport(Category category, Transport transport){
+        List<Group> groupList = groupRepository.findByCategoryAndTransport(category, transport);
+        return groupList;
+    }
+
+
 }
