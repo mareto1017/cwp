@@ -57,16 +57,6 @@ public class SearchController {
         return groupDtoList;
     }
 
-    @GetMapping("/search/CategoryAndTransport")
-    public List<GroupDto> findByCategoryAndTransport(Category category, Transport transport) {
-        List<Group> groupList = postService.findByCategoryAndTransport(category, transport);
-        List<GroupDto> groupDtoList = new ArrayList<>();
-        for (Group group : groupList) {
-            groupDtoList.add(new GroupDto(group));
-        }
-
-        return groupDtoList;
-    }
 
 
 }

@@ -42,9 +42,9 @@ public class PostService {
     }
 
     @Transactional
-    public void delete(GroupDto groupDto) {
-        Group group = new Group(groupDto);
-        groupRepository.delete(group);
+    public void delete(Long id) {
+
+        groupRepository.deleteById(id);
 
     }
 
@@ -57,12 +57,6 @@ public class PostService {
     @Transactional
     public List<Group> findByCategory(Category category){
         List<Group> groupList = groupRepository.findByCategory(category);
-        return groupList;
-    }
-
-    @Transactional
-    public List<Group> findByCategoryAndTransport(Category category, Transport transport){
-        List<Group> groupList = groupRepository.findByCategoryAndTransport(category, transport);
         return groupList;
     }
 
