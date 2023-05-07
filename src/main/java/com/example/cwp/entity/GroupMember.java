@@ -1,10 +1,11 @@
 package com.example.cwp.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -25,4 +26,7 @@ public class GroupMember {
     @JoinColumn(name = "groupid")
     private Group group;
 
+    public void add(){
+        
+    }
 }
