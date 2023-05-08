@@ -27,17 +27,7 @@ public class PostController {
 
     @PutMapping("/update/{id}")
     public void update(@PathVariable Long id, @RequestBody GroupDto requestGroupDto){
-        Group group = groupRepository.findById(id).get();
-        GroupDto groupDto = new GroupDto(group);
-        groupDto.setTitle(requestGroupDto.getTitle());
-        groupDto.setCategory(requestGroupDto.getCategory());
-        groupDto.setLocation(requestGroupDto.getLocation());
-        groupDto.setTime(requestGroupDto.getTime());
-        groupDto.setContent(requestGroupDto.getContent());
-        groupDto.setGroupMemberDto(requestGroupDto.getGroupMemberDto());
-        groupDto.setStartTime(requestGroupDto.getStartTime());
-        postService.update(groupDto);
-        postService.delete(id);
+        postService.update(id, requestGroupDto);
 
     }
 

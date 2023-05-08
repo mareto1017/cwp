@@ -51,6 +51,7 @@ public class Group {
     private LocalDateTime startTime;
 
     public Group(GroupDto groupDto) {
+        this.id=groupDto.getId();
         this.title = groupDto.getTitle();
         this.location = groupDto.getLocation();
         this.category = groupDto.getCategory();

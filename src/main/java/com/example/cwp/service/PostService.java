@@ -35,8 +35,13 @@ public class PostService {
     }
 
     @Transactional
-    public void update(GroupDto groupDto) {
-        Group group = new Group(groupDto);
+    public void update(Long id, GroupDto groupDto) {
+        Group group = groupRepository.findById(id).get();
+        group.setTitle(groupDto.getTitle());
+        group.setCategory(groupDto.getCategory());
+        group.setLocation(groupDto.getLocation());
+        group.setContent(groupDto.getContent());
+        group.setStartTime(groupDto.getStartTime());
         groupRepository.save(group);
 
     }
