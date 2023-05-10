@@ -4,7 +4,9 @@ import com.example.cwp.dto.Category;
 import com.example.cwp.dto.GroupDto;
 import com.example.cwp.dto.Transport;
 import com.example.cwp.entity.Group;
+import com.example.cwp.repository.GroupRepository;
 import com.example.cwp.service.PostService;
+import com.example.cwp.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,14 +19,17 @@ import java.util.List;
 @RestController
 public class SearchController {
 
+    @Autowired
+    private SearchService searchService;
 
     @Autowired
-    private PostService postService;
+    private GroupRepository groupRepository;
+
 
 
     @GetMapping("/search/main")
     public List<GroupDto> findAll() {
-        List<Group> groupList = postService.findAll();
+        List<Group> groupList = searchService.findAll();
         List<GroupDto> groupDtoList = new ArrayList<>();
         for (Group group : groupList) {
             groupDtoList.add(new GroupDto(group));
@@ -35,7 +40,7 @@ public class SearchController {
 
     @GetMapping("/search/title")
     public List<GroupDto> findByTitle(String title) {
-        List<Group> groupList = postService.findByTitle(title);
+        List<Group> groupList = searchService.findByTitle(title);
         List<GroupDto> groupDtoList = new ArrayList<>();
         for (Group group : groupList) {
             groupDtoList.add(new GroupDto(group));
@@ -48,7 +53,7 @@ public class SearchController {
 
     @GetMapping("/search/Category")
     public List<GroupDto> findByCategory(Category category) {
-        List<Group> groupList = postService.findByCategory(category);
+        List<Group> groupList = searchService.findByCategory(category);
         List<GroupDto> groupDtoList = new ArrayList<>();
         for (Group group : groupList) {
             groupDtoList.add(new GroupDto(group));

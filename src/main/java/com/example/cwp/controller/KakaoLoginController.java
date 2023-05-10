@@ -17,7 +17,7 @@ public class KakaoLoginController {
 
         kakoLoginService.kakaoLogin(code);
 
-        return "redirect:/";
+        return "redirect:result.html";
 
 
     }

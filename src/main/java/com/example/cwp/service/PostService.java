@@ -17,15 +17,11 @@ public class PostService {
     @Autowired
     private final GroupRepository groupRepository;
 
-    public PostService(GroupRepository groupRepository){
-            this.groupRepository = groupRepository;
+    public PostService(GroupRepository groupRepository) {
+        this.groupRepository = groupRepository;
     }
 
-    @Transactional
-    public List<Group> findAll(){
-        List<Group> groupList = groupRepository.findAll();
-        return groupList;
-    }
+
 
     @Transactional
     public void write(GroupDto groupDto) {
@@ -52,18 +48,6 @@ public class PostService {
         groupRepository.deleteById(id);
 
     }
-
-    @Transactional
-    public List<Group> findByTitle(String title){
-        List<Group> groupList = groupRepository.findByTitle(title);
-        return groupList;
-    }
-
-    @Transactional
-    public List<Group> findByCategory(Category category){
-        List<Group> groupList = groupRepository.findByCategory(category);
-        return groupList;
-    }
-
-
 }
+
+

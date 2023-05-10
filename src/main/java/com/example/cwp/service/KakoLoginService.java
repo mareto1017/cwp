@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class KakoLoginService {
@@ -25,6 +26,7 @@ public class KakoLoginService {
         this.authenticationManager = authenticationManager;
     }
 
+    @Transactional
     public void kakaoLogin(String authorizedCode) {
         UserDto userInfo = kakaoOAuth.getUserInfo(authorizedCode);
         String nickname = userInfo.getName();

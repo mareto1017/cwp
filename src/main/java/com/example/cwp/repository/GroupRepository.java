@@ -3,6 +3,7 @@ package com.example.cwp.repository;
 import com.example.cwp.dto.Category;
 import com.example.cwp.dto.Transport;
 import com.example.cwp.entity.Group;
+import com.example.cwp.entity.GroupMember;
 import com.example.cwp.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,8 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
     List<Group> findByTitle(String title);
 
     List<Group> findByCategory(Category category);
-    List<Group> findByUser(User user);
+
+//    List<Group> findByGroup(GroupMember groupMember);
 
 
 

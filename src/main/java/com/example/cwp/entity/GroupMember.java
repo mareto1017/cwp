@@ -26,7 +26,4 @@ public class GroupMember {
     @JoinColumn(name = "groupid")
     private Group group;
 
-    public void add(){
-        
-    }
 }
