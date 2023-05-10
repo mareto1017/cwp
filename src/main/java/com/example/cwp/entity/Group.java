@@ -46,7 +46,7 @@ public class Group {
     private List<GroupMember> groupMember;
 
     @CreationTimestamp
-    private LocalDateTime time;
+    private LocalDateTime createdAt;
 
     private LocalDateTime startTime;
 
@@ -57,7 +57,7 @@ public class Group {
         this.category = groupDto.getCategory();
         this.content = groupDto.getContent();
         this.groupMember = getGroupMember();
-        this.time = LocalDateTime.now();
+        this.createdAt = groupDto.getCreateAt();
         this.startTime = groupDto.getStartTime();
     }
 

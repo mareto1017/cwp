@@ -17,7 +17,7 @@ public interface GroupRepository extends JpaRepository<Group, Long> {
 
     List<Group> findByCategory(Category category);
 
-//    List<Group> findByGroup(GroupMember groupMember);
+    //List<Group> findByGroup(GroupMember groupMember);
 
 
 

@@ -29,7 +29,7 @@ public class GroupDto {
 
     private List<GroupMemberDto> groupMemberDto;
 
-    private LocalDateTime time;
+    private LocalDateTime createAt;
 
     private LocalDateTime startTime;
 
@@ -41,7 +41,7 @@ public class GroupDto {
         this.category = group.getCategory();
         this.content = group.getContent();
         this.groupMemberDto = getGroupMemberDto();
-        this.time = LocalDateTime.now();
+        this.createAt = group.getCreatedAt();
         this.startTime = group.getStartTime();
     }
 }
