@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface GroupMemberRepository extends JpaRepository<GroupMember, Long> {
-    List<GroupMember> findByUser(Long id);
 
 }

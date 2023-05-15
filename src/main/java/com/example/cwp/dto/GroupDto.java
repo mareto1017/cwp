@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @NoArgsConstructor
@@ -31,7 +32,10 @@ public class GroupDto {
 
     private LocalDateTime createAt;
 
-    private LocalDateTime startTime;
+    private Date date;
+
+    private Date time;
+
 
     public GroupDto(Group group) {
         this.id = group.getId();
@@ -42,6 +46,7 @@ public class GroupDto {
         this.content = group.getContent();
         this.groupMemberDto = getGroupMemberDto();
         this.createAt = group.getCreatedAt();
-        this.startTime = group.getStartTime();
+        this.date = group.getDate();
+        this.time = group.getTime();
     }
 }

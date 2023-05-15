@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,10 +46,18 @@ public class SearchService {
     }
 
 
-//    @Transactional
-//    public List<Group> findById(String id){
-//        List<GroupMember> myGroup = groupMemberRepository.findByMember(id);
-//        List<Group> groupList = groupRepository.findByGroup(myGroup);
-//
-//    }
+    @Transactional
+    public List<Group> findByUserId(Long id){
+        List<Group> groupList= groupRepository.findByGroupMemberUserId(id);
+
+        return  groupList;
+    }
+
+
+    @Transactional
+    public List<Group> findByDate(Long id, Date date) {
+        List<Group> groupList = groupRepository.findByGroupMemberUserIdAndDate(id, date);
+
+        return groupList;
+    }
 }

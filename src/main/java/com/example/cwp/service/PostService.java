@@ -37,7 +37,8 @@ public class PostService {
         group.setCategory(groupDto.getCategory());
         group.setLocation(groupDto.getLocation());
         group.setContent(groupDto.getContent());
-        group.setStartTime(groupDto.getStartTime());
+        group.setDate(groupDto.getDate());
+        group.setTime(groupDto.getTime());
         groupRepository.save(group);
 
     }

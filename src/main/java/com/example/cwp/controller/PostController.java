@@ -20,7 +20,8 @@ public class PostController {
     private GroupRepository groupRepository;
 
     @PostMapping("/write")
-    public void write(GroupDto groupDto){
+    public void write(@RequestBody GroupDto groupDto){
+        System.out.println(groupDto);
         postService.write(groupDto);
 
     }

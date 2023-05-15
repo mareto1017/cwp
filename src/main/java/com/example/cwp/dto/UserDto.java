@@ -17,6 +17,9 @@ public class UserDto {
 
     private String email;
 
+    private String provider;
+
+    private String providerId;
 
     private String currentAddress;
 
