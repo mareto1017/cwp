@@ -25,7 +25,7 @@ public class SearchController {
 
 
 
-    @GetMapping("/search/all")
+    @GetMapping("/all")
     public List<GroupDto> findAll() {
         List<Group> groupList = searchService.findAll();
         List<GroupDto> groupDtoList = new ArrayList<>();
@@ -49,7 +49,7 @@ public class SearchController {
 //    }
 
 
-    @GetMapping("/search/category/{category}")
+    @GetMapping("/category/{category}")
     public List<GroupDto> findByCategory(@PathVariable Category category) {
         List<Group> groupList = searchService.findByCategory(category);
         List<GroupDto> groupDtoList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class SearchController {
         return groupDtoList;
     }
 
-    @GetMapping("/search/id/{id}")
+    @GetMapping("/id/{id}")
     public List<GroupDto> findByUserId(@PathVariable Long id){
         List<Group> groupList = searchService.findByUserId(id);
         List<GroupDto> groupDtoList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class SearchController {
         return groupDtoList;
     }
 
-    @GetMapping("search/date/{id}{date}")
+    @GetMapping("/date/{id}{date}")
     public List<GroupDto> findByDate(@PathVariable Long id, @PathVariable Date date){
         List<Group> groupList = searchService.findByDate(id, date);
         List<GroupDto> groupDtoList = new ArrayList<>();

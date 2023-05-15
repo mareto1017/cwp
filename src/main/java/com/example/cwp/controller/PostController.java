@@ -19,19 +19,19 @@ public class PostController {
     @Autowired
     private GroupRepository groupRepository;
 
-    @PostMapping("/write")
+    @PostMapping("/group")
     public void write(@RequestBody GroupDto groupDto){
         postService.write(groupDto);
 
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/group/{id}")
     public void update(@PathVariable Long id, @RequestBody GroupDto requestGroupDto){
         postService.update(id, requestGroupDto);
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/group/{id}")
     public void delete(@PathVariable Long id){
         postService.delete(id);
 
