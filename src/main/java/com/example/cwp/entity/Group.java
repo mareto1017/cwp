@@ -11,6 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -26,21 +27,21 @@ public class Group {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String title;
 
     @ManyToOne
     @JoinColumn(name = "writer")
     private User user;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String location;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = true)
+    @Column(nullable = false)
     private Category category;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String content;
 
     @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
@@ -52,8 +53,7 @@ public class Group {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @Temporal(TemporalType.TIME)
-    private Date time;
+    private LocalTime time;
 
     public Group(GroupDto groupDto) {
         this.id=groupDto.getId();

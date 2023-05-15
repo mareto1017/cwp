@@ -8,10 +8,7 @@ import com.example.cwp.repository.GroupRepository;
 import com.example.cwp.service.PostService;
 import com.example.cwp.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,8 +49,8 @@ public class SearchController {
 //    }
 
 
-    @GetMapping("/search/category")
-    public List<GroupDto> findByCategory(Category category) {
+    @GetMapping("/search/category/{category}")
+    public List<GroupDto> findByCategory(@PathVariable Category category) {
         List<Group> groupList = searchService.findByCategory(category);
         List<GroupDto> groupDtoList = new ArrayList<>();
         for (Group group : groupList) {
@@ -63,8 +60,8 @@ public class SearchController {
         return groupDtoList;
     }
 
-    @GetMapping("/search/{id}")
-    public List<GroupDto> findByUserId(Long id){
+    @GetMapping("/search/id/{id}")
+    public List<GroupDto> findByUserId(@PathVariable Long id){
         List<Group> groupList = searchService.findByUserId(id);
         List<GroupDto> groupDtoList = new ArrayList<>();
         for (Group group : groupList) {
@@ -74,8 +71,8 @@ public class SearchController {
         return groupDtoList;
     }
 
-    @GetMapping("search/{id}{date}")
-    public List<GroupDto> findByDate(Long id, Date date){
+    @GetMapping("search/date/{id}{date}")
+    public List<GroupDto> findByDate(@PathVariable Long id, @PathVariable Date date){
         List<Group> groupList = searchService.findByDate(id, date);
         List<GroupDto> groupDtoList = new ArrayList<>();
         for (Group group : groupList) {

@@ -21,7 +21,6 @@ public class PostController {
 
     @PostMapping("/write")
     public void write(@RequestBody GroupDto groupDto){
-        System.out.println(groupDto);
         postService.write(groupDto);
 
     }
