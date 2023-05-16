@@ -1,6 +1,7 @@
 package com.example.cwp.controller;
 
 
+import com.example.cwp.dto.Category;
 import com.example.cwp.dto.GroupDto;
 import com.example.cwp.dto.UserDto;
 import com.example.cwp.entity.Group;
@@ -16,12 +17,11 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @Autowired
-    private GroupRepository groupRepository;
 
     @PostMapping("/group")
-    public void write(@RequestBody GroupDto groupDto){
-        postService.write(groupDto);
+    public void write(@RequestBody Group group){
+        System.out.println(group);
+        postService.write(group);
 
     }
 
@@ -35,6 +35,11 @@ public class PostController {
     public void delete(@PathVariable Long id){
         postService.delete(id);
 
+    }
+
+    @PutMapping("/category/{id}")
+    public void updateCategory(@PathVariable Long id, @RequestBody GroupDto groupDto){
+        postService.updateCategory(id, groupDto.getCategory());
     }
     
 }

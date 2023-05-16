@@ -38,7 +38,7 @@ public class Group {
     private String location;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = true, columnDefinition = "VARCHAR(255) DEFAULT 'ETC'")
     private Category category;
 
     @Column(nullable = false)
@@ -58,11 +58,12 @@ public class Group {
     public Group(GroupDto groupDto) {
         this.id=groupDto.getId();
         this.title = groupDto.getTitle();
+        this.user = groupDto.getUser();
         this.location = groupDto.getLocation();
         this.category = groupDto.getCategory();
         this.content = groupDto.getContent();
         this.groupMember = getGroupMember();
-        this.createdAt = groupDto.getCreateAt();
+        this.createdAt = groupDto.getCreatedAt();
         this.date = groupDto.getDate();
         this.time = groupDto.getTime();
 

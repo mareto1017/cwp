@@ -24,17 +24,21 @@ public class SearchController {
     private GroupRepository groupRepository;
 
 
+    @GetMapping("/")
+    public void main(){
 
-    @GetMapping("/all")
-    public List<GroupDto> findAll() {
-        List<Group> groupList = searchService.findAll();
-        List<GroupDto> groupDtoList = new ArrayList<>();
-        for (Group group : groupList) {
-            groupDtoList.add(new GroupDto(group));
-        }
-
-        return groupDtoList;
     }
+
+//    @GetMapping("/all")
+//    public List<GroupDto> findAll() {
+//        List<Group> groupList = searchService.findAll();
+//        List<GroupDto> groupDtoList = new ArrayList<>();
+//        for (Group group : groupList) {
+//            groupDtoList.add(new GroupDto(group));
+//        }
+//
+//        return groupDtoList;
+// }
 //
 //    @GetMapping("/search/title")
 //    public List<GroupDto> findByTitle(String title) {
@@ -71,7 +75,7 @@ public class SearchController {
         return groupDtoList;
     }
 
-    @GetMapping("/date/{id}{date}")
+    @GetMapping("/date/{id}/{date}")
     public List<GroupDto> findByDate(@PathVariable Long id, @PathVariable Date date){
         List<Group> groupList = searchService.findByDate(id, date);
         List<GroupDto> groupDtoList = new ArrayList<>();
