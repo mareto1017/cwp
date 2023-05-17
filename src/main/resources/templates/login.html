@@ -7,25 +7,12 @@
 <body>
 <h1>Login</h1>
 
-<form th:action="@{/login}" method="post">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" required><br><br>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-
-    <button type="submit">Login</button>
-</form>
-
-<h2>Or login with:</h2>
 
 <a href="/oauth2/authorization/kakao">Kakao</a><br>
 <a href="/oauth2/authorization/google">Google</a><br>
 <a href="/oauth2/authorization/naver">Naver</a>
 
-<form th:action="@{/logout}" method="post">
-    <button type="submit">Logout</button>
-</form>
+
 </body>
 </html>
 

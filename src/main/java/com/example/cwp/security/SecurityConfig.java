@@ -32,12 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .logout()
+                .logoutSuccessUrl("/login")
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .logoutSuccessUrl("/login")
+                .deleteCookies("JSESSIONID")
                 .and()
                 .oauth2Login()
                 .loginPage("/login")
+                .defaultSuccessUrl("/")
                 .userInfoEndpoint()
                 .userService(principalOauth2UserService);
 
